@@ -1,0 +1,237 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 120px 2rem 4rem;
+  font-family: var(--font-inter), sans-serif;
+}
+
+@media (max-height: 800px) {
+  .container {
+    align-items: flex-start;
+  }
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 480px;
+  background: #ffffff;
+  padding: 3.5rem;
+  border-radius: 16px;
+  border: 1px solid #eaeaea;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  color: #111;
+}
+
+.formWrapper h1 {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111;
+}
+
+.subtitle {
+  text-align: center;
+  color: #71717a;
+  margin-bottom: 2.5rem;
+  font-size: 0.95rem;
+}
+
+.error {
+  background-color: #fef2f2;
+  color: #ef4444;
+  border: 1px solid #fecaca;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #3f3f46;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.inputGroup input {
+  padding: 1rem 1.25rem;
+  background: #fafafa;
+  border: 1px solid #e4e4e7;
+  border-radius: 8px;
+  color: #111;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.inputGroup input:focus {
+  outline: none;
+  border-color: #111;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.inputGroup input::placeholder {
+  color: #a1a1aa;
+}
+
+.passwordWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.passwordWrapper input {
+  padding-right: 3.5rem;
+}
+
+.toggleBtn {
+  position: absolute;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: #a1a1aa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.toggleBtn:hover {
+  color: #111;
+}
+
+.forgotPassword {
+  text-align: right;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+}
+
+.forgotPassword a {
+  color: #71717a;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.forgotPassword a:hover {
+  color: #111;
+}
+
+.submitBtn {
+  background-color: #111;
+  color: #fff;
+  padding: 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background-color: #000;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.footer {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #71717a;
+}
+
+.footer a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 0.25rem;
+  border-bottom: 1px solid #e4e4e7;
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.footer a:hover {
+  border-color: #111;
+}
+
+.demoBox {
+  margin-top: 2.5rem;
+  padding: 1.25rem;
+  background: #fafafa;
+  border: 1px dashed #e4e4e7;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #71717a;
+}
+
+.demoBox h4 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #111;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.demoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #eaeaea;
+}
+.demoRow:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.demoBtn {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+  background: #f4f4f5;
+  color: #111;
+  border: 1px solid #e4e4e7;
+  border-radius: 6px;
+  transition: all 0.2s;
+  font-weight: 600;
+}
+.demoBtn:hover {
+  background: #e4e4e7;
+}

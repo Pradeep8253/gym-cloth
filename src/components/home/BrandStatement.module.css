@@ -1,0 +1,39 @@
+.brandStatement {
+  background-color: var(--white);
+  color: var(--black);
+  padding: 10rem 0;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+.statement {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4rem, 10vw, 12rem);
+  line-height: 0.9;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.statement span {
+  display: block;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .brandStatement {
+    padding: 6rem 0;
+    min-height: 60vh;
+  }
+}

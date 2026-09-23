@@ -1,0 +1,293 @@
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 120px 2rem 6rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 6rem;
+}
+
+/* Gallery */
+.galleryContainer {
+  display: flex;
+  gap: 1.5rem;
+  height: 80vh;
+  position: sticky;
+  top: 100px;
+}
+
+.thumbnailList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80px;
+}
+
+.thumbnail {
+  position: relative;
+  aspect-ratio: 3/4;
+  cursor: pointer;
+  border: 1px solid transparent;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.thumbnailActive {
+  opacity: 1;
+  border-color: var(--black);
+}
+
+.thumbImg {
+  object-fit: cover;
+}
+
+.mainImageContainer {
+  flex: 1;
+  position: relative;
+  background-color: var(--off-white);
+  cursor: zoom-in;
+}
+
+.mainImg {
+  object-fit: cover;
+}
+
+/* Info */
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+}
+
+.stars {
+  display: flex;
+  color: var(--black);
+}
+
+.reviewCount {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* Selection */
+.selectionLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.selectionLabel span {
+  color: var(--muted);
+  margin-left: 0.5rem;
+}
+
+.colorSelection {
+  margin-bottom: 2.5rem;
+}
+
+.colorOptions {
+  display: flex;
+  gap: 1rem;
+}
+
+.colorBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  padding: 0;
+  position: relative;
+}
+
+.colorBtnActive::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--black);
+}
+
+.sizeSelection {
+  margin-bottom: 2.5rem;
+}
+
+.sizeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.sizeGuideBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-bottom: 1rem;
+}
+
+.sizeOptions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.sizeBtn {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.sizeBtn:hover {
+  border-color: var(--black);
+}
+
+.sizeBtnActive {
+  background-color: var(--black);
+  color: var(--white);
+  border-color: var(--black);
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 4rem;
+}
+
+.addToBagBtn {
+  flex: 1;
+  background-color: var(--black);
+  color: var(--white);
+  padding: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.addToBagBtn:hover {
+  background-color: var(--accent);
+  color: var(--black);
+}
+
+.wishlistBtn {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s ease;
+}
+
+.wishlistBtn:hover {
+  border-color: var(--black);
+}
+
+.wishlisted {
+  color: #ff3366;
+}
+
+/* Accordion */
+.accordionContainer {
+  border-top: 1px solid var(--border);
+}
+
+.accordionItem {
+  border-bottom: 1px solid var(--border);
+}
+
+.accordionHeader {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.accordionContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.accordionContent p {
+  margin-bottom: 1rem;
+}
+
+.open {
+  max-height: 500px;
+  padding-bottom: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .galleryContainer {
+    height: 60vh;
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 90px;
+  }
+  
+  .galleryContainer {
+    flex-direction: column-reverse;
+  }
+  
+  .thumbnailList {
+    flex-direction: row;
+    width: 100%;
+    overflow-x: auto;
+  }
+  
+  .thumbnail {
+    flex: 0 0 60px;
+  }
+}

@@ -1,0 +1,142 @@
+.footer {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 6rem 0 2rem;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.topSection {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 4rem;
+  margin-bottom: 6rem;
+}
+
+.brand {
+  max-width: 400px;
+}
+
+.logo {
+  font-family: var(--font-space-grotesk);
+  font-weight: 700;
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: var(--muted);
+  margin-bottom: 3rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.newsletterTitle {
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.newsletterForm {
+  display: flex;
+  border-bottom: 1px solid var(--muted);
+  padding-bottom: 0.5rem;
+}
+
+.input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  outline: none;
+  font-size: 0.875rem;
+}
+
+.input::placeholder {
+  color: var(--muted);
+}
+
+.submitBtn {
+  color: var(--white);
+  padding: 0 0.5rem;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.columnTitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.column a {
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.column a:hover {
+  color: var(--accent);
+}
+
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 2rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.legal {
+  display: flex;
+  gap: 2rem;
+}
+
+.legal a:hover, .social a:hover {
+  color: var(--white);
+}
+
+.social {
+  display: flex;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .topSection {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .linksGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bottomSection {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+  
+  .legal, .social {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

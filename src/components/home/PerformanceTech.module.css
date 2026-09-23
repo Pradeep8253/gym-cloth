@@ -1,0 +1,166 @@
+.section {
+  padding: 8rem 0;
+  background-color: var(--black);
+  color: var(--white);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  margin-bottom: 4rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.techList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.techItem {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  color: var(--muted);
+  transition: color 0.3s ease;
+}
+
+.techItem:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.techItem:hover {
+  color: var(--off-white);
+}
+
+.techItem.active {
+  color: var(--white);
+}
+
+.techItem h3 {
+  margin-bottom: 0;
+  transition: color 0.3s ease;
+}
+
+.active h3 {
+  color: var(--accent);
+}
+
+.techDescContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.active .techDescContainer {
+  max-height: 150px;
+}
+
+.techDesc {
+  padding-top: 1rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--off-white);
+}
+
+.visualizer {
+  position: relative;
+  aspect-ratio: 1/1;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.image {
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  opacity: 0.5;
+  animation: scan 3s linear infinite;
+  z-index: 2;
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+.hudOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  padding: 1rem;
+}
+
+.hudCornerTopLeft, .hudCornerTopRight, .hudCornerBottomLeft, .hudCornerBottomRight {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--white);
+  border-style: solid;
+  opacity: 0.5;
+}
+
+.hudCornerTopLeft {
+  top: 1rem; left: 1rem; border-width: 2px 0 0 2px;
+}
+.hudCornerTopRight {
+  top: 1rem; right: 1rem; border-width: 2px 2px 0 0;
+}
+.hudCornerBottomLeft {
+  bottom: 1rem; left: 1rem; border-width: 0 0 2px 2px;
+}
+.hudCornerBottomRight {
+  bottom: 1rem; right: 1rem; border-width: 0 2px 2px 0;
+}
+
+.hudText {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  font-family: var(--font-space-grotesk);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .active .techDescContainer {
+    max-height: 200px;
+  }
+}

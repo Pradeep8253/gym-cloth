@@ -1,0 +1,155 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.imageContainer {
+  position: relative;
+  aspect-ratio: 4/5;
+  background-color: var(--off-white);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.imageHovered {
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: var(--black);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.5rem;
+  z-index: 10;
+}
+
+.wishlistBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+  color: var(--black);
+  transition: transform 0.2s ease;
+}
+
+.wishlistBtn:hover {
+  transform: scale(1.1);
+}
+
+.wishlisted {
+  color: #ff3366;
+}
+
+.quickAdd {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+
+.quickAddVisible {
+  transform: translateY(0);
+}
+
+.quickAddBtn {
+  width: 100%;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.quickAddBtn:hover {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.colors {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.colorSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.name a:hover {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.category {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.salePrice {
+  color: #ff3366;
+}
+
+@media (max-width: 768px) {
+  .quickAdd {
+    display: none;
+  }
+}
