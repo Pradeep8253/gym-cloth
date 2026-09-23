@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import gsap from 'gsap';
-import { Search, User, Heart, ShoppingBag, LogOut } from 'lucide-react';
+import { Search, User, Heart, ShoppingBag, LogOut, Menu, X } from 'lucide-react';
 import useStore from '@/lib/store/useStore';
 import { useSession, signOut } from 'next-auth/react';
 import { usePathname } from 'next/navigation';
@@ -11,6 +11,7 @@ import styles from './Header.module.css';
 const Header = () => {
   const headerRef = useRef(null);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toggleCart, cartItems, wishlistItems, setWishlistOpen } = useStore();
   const [mounted, setMounted] = useState(false);
   const { data: session } = useSession();
@@ -22,9 +23,18 @@ const Header = () => {
 
   useEffect(() => {
     setMounted(true);
-    // Initialize scroll state on mount and route change
     setIsScrolled(window.scrollY > 50 || !isHome);
   }, [isHome]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,7 +59,7 @@ const Header = () => {
             <li><Link href="/shop?gender=men">MEN</Link></li>
             <li><Link href="/shop?gender=women">WOMEN</Link></li>
             <li><Link href="/sports">SPORTS</Link></li>
-            <li><Link href="/shop?category=training">TRAINING</Link></li>
+            <li><Link href="/shop?category=t-shirts">T-SHIRTS</Link></li>
             <li><Link href="/collections/new-drop">NEW</Link></li>
             <li><Link href="/collections">COLLECTIONS</Link></li>
           </ul>
@@ -81,8 +91,28 @@ const Header = () => {
             <ShoppingBag size={20} />
             {mounted && cartItemCount > 0 && <span className={styles.cartBadge}>{cartItemCount}</span>}
           </button>
+          
+          <button 
+            className={styles.mobileMenuBtn} 
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
+      
+      {/* Mobile Navigation Drawer */}
+      <nav className={`${styles.mobileNav} ${mobileMenuOpen ? styles.open : ''}`}>
+        <ul>
+          <li><Link href="/shop?gender=men" onClick={() => setMobileMenuOpen(false)}>MEN</Link></li>
+          <li><Link href="/shop?gender=women" onClick={() => setMobileMenuOpen(false)}>WOMEN</Link></li>
+          <li><Link href="/sports" onClick={() => setMobileMenuOpen(false)}>SPORTS</Link></li>
+          <li><Link href="/shop?category=t-shirts" onClick={() => setMobileMenuOpen(false)}>T-SHIRTS</Link></li>
+          <li><Link href="/collections/new-drop" onClick={() => setMobileMenuOpen(false)}>NEW</Link></li>
+          <li><Link href="/collections" onClick={() => setMobileMenuOpen(false)}>COLLECTIONS</Link></li>
+        </ul>
+      </nav>
     </header>
   );
 };
